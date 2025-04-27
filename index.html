@@ -4,55 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nikitha Reddy Surakanti - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 30px;
-      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f9;
       color: #333;
+      padding: 50px;
     }
     h1, h2 {
       color: #2c3e50;
     }
     h1 {
-      font-size: 28px;
+      font-size: 36px;
       margin-bottom: 0;
+      font-weight: 600;
     }
     h2 {
       margin-top: 30px;
-      font-size: 22px;
+      font-size: 24px;
       border-bottom: 2px solid #ccc;
       padding-bottom: 5px;
     }
     p, li {
       font-size: 16px;
       line-height: 1.6;
+      margin-top: 5px;
     }
     .contact {
       margin-bottom: 20px;
+      font-size: 18px;
+      color: #777;
+    }
+    .contact a {
+      text-decoration: none;
+      color: #3498db;
     }
     ul {
-      margin-top: 10px;
+      list-style: none;
+      padding-left: 0;
     }
     .section {
-      margin-top: 20px;
+     margin-top: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     .job-title {
       font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      color: #34495e;
+    }
+    .technologies .project-description {
+      font-style: italic;
+      color: #7f8c8d;
+    }
+    .technologies-project {
+      font-weight: 500;
+      margin-top: 5px;
+      color: #3498db;
+    }
+
+    .project-title {
+      font-weight: bold;
+      font-size: 18px;
       margin-top: 10px;
     }
-    .technologies {
-      font-style: italic;
-      color: #555;
+
+    .projects {
+      margin-top: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #3498db;
+    }
+
+    .section ul {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-
+<header>
   <h1>Nikitha Reddy Surakanti</h1>
   <div class="contact">
-    Edison, NJ - 08820 • (405)-888-7495 • nikithareddy4321@gmail.com • https://www.linkedin.com/in/nikitha-surakanti-580517191/
+    Edison, NJ - 08820 • (405)-888-7495 • <a href="mailto:nikithareddy4321@gmail.com">nikithareddy4321@gmail.com</a> • <a href="https://www.linkedin.com/in/nikitha-surakanti-580517191/" target="_blank">LinkedIn</a>
   </div>
+  </header>
 
   <p><strong>Full Stack and Mobile Application Engineer</strong> with 4+ years of experience in developing scalable web applications and mobile solutions. Skilled in designing and deploying RESTful APIs, managing cloud infrastructures (Azure, AWS, Firebase), and integrating cross-platform mobile frameworks such as Flutter, Xamarin, and .NET MAUI. Proficient in front-end (React, Angular, SwiftUI, Jetpack Compose) and back-end (SQL Server, MongoDB, Firebase) technologies, with a strong focus on optimizing user experience, performance, and security compliance (GDPR, HIPAA). Adept at working in Agile environments and leveraging data science knowledge for enhanced app functionality.</p>
 
@@ -118,6 +172,42 @@
       <li>Assisted with mobile responsiveness and unit testing.</li>
     </ul>
     <p class="technologies">Technologies: ASP.NET MVC, C#, AJAX, Python, R, Git, Visual Studio.</p>
+  </div>
+  
+  <h2>Projects</h2>
+
+  <div class="projects">
+    <div class="project-title">1. Mosquito Misting App</div>
+    <p class="project-description">Developed a cross-platform mobile application that controls IoT-based mosquito misting systems remotely. Integrated BLE and Wi-Fi communication protocols to schedule and monitor misting operations.</p>
+    <p class="technologies-project">Technologies: Flutter, Firebase, Azure IoT, BLE, Wi-Fi, RESTful APIs.</p>
+
+    <div class="project-title">2. Enterprise Key Tracking App ("Find My" Style)</div>
+    <p class="project-description">Built a mobile application to help car rental enterprises track and manage vehicle keys using Bluetooth tracking devices. Enabled real-time location updates, alerts for lost keys, and integration with enterprise backend systems.</p>
+    <p class="technologies-project">Technologies: Flutter, Firebase Realtime Database, Azure Functions, BLE, Geo-Location Services.</p>
+
+    <div class="project-title">3. Oklahoma Christian University Student Portal App</div>
+    <p class="project-description">Designed and developed a mobile application to help students quickly access information related to billing, class schedules, university updates, and campus services. Streamlined communication between students and university departments.</p>
+    <p class="technologies-project">Technologies: Flutter, Firebase, REST APIs, Push Notifications.</p>
+
+    <div class="project-title">4. Data Science-Based Movie Recommendation System</div>
+    <p class="project-description">Developed a movie recommendation system using machine learning algorithms (Collaborative Filtering, Content-Based Filtering) to suggest personalized movie choices to users. Leveraged a dataset of user ratings to build a model that can predict preferences based on historical data.</p>
+    <p class="technologies-project">Technologies: Python, Machine Learning, Pandas, Scikit-Learn, SQL, Data Visualization.</p>
+
+    <div class="project-title">5. Cloud-Based Automated Data Cleaning Pipeline</div>
+    <p class="project-description">Designed an automated data cleaning pipeline hosted on AWS, where raw data could be processed, cleaned, and transformed before being fed into machine learning models. Integrated the pipeline with AWS S3 for storage and Lambda functions for real-time processing.</p>
+    <p class="technologies-project">Technologies: AWS, Python, Pandas, Lambda, S3, Data Processing.</p>
+
+    <div class="project-title">6. Sentiment Analysis on Social Media Data</div>
+    <p class="project-description">Built a sentiment analysis model using natural language processing (NLP) to analyze social media posts about various brands. The model was trained to categorize text data as positive, negative, or neutral, providing valuable insights into brand perception.</p>
+    <p class="technologies-project">Technologies: Python, NLP, Scikit-Learn, TensorFlow, Pandas, Data Mining.</p>
+
+    <div class="project-title">7. Predictive Analytics for Student Performance</div>
+    <p class="project-description">Developed a predictive model using R and machine learning algorithms to analyze and predict student performance based on historical data. The model helped identify at-risk students early and provided actionable insights for faculty to improve retention rates.</p>
+    <p class="technologies-project">Technologies: R, Python, Machine Learning, Data Analysis, SPSS.</p>
+
+    <div class="project-title">8. Real-Time Traffic Monitoring System</div>
+    <p class="project-description">Designed and implemented a real-time traffic monitoring system using data from IoT sensors to predict traffic congestion. Built a dashboard for visualizing live traffic data and providing real-time suggestions to drivers based on traffic conditions.</p>
+    <p class="technologies-project">Technologies: Python, Django, IoT, Data Visualization, Flask.</p>
   </div>
 
   <h2>Technical Skills</h2>
