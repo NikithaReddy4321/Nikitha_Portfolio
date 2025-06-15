@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nikitha Reddy Surakanti - Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -12,232 +13,868 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --text-primary: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --text-light: #ecf0f1;
+      --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.15);
+      --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f4f6f9;
-      color: #333;
-      padding: 50px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: var(--text-primary);
+      padding: 20px;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
-    h1, h2 {
-      color: #2c3e50;
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.05) 0.5px, transparent 0.5px),
+        radial-gradient(circle at 20% 60%, rgba(255,255,255,0.05) 0.5px, transparent 0.5px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.05) 0.5px, transparent 0.5px);
+      background-size: 100px 100px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shape {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+    }
+
+    .shape:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 10%;
+      animation-delay: 7s;
+    }
+
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 80%;
+      left: 20%;
+      animation-delay: 14s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(90deg); }
+      50% { transform: translateY(-40px) rotate(180deg); }
+      75% { transform: translateY(-20px) rotate(270deg); }
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0;
+      border-radius: 24px;
+      box-shadow: var(--shadow-heavy);
+      margin: 20px auto;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--primary-gradient);
+      z-index: 1;
+    }
+
+    header {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 60px 40px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: headerGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes headerGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-30%, -30%) scale(1.1); }
+    }
+
     h1 {
-      font-size: 36px;
-      margin-bottom: 0;
-      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: slideInDown 1s ease-out;
     }
-    h2 {
-      margin-top: 30px;
-      font-size: 24px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    p, li {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-top: 5px;
-    }
+
     .contact {
-      margin-bottom: 20px;
-      font-size: 18px;
-      color: #777;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+      font-size: 16px;
+      position: relative;
+      z-index: 2;
+      animation: slideInUp 1s ease-out 0.3s both;
     }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px 20px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .contact span:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
     .contact a {
       text-decoration: none;
-      color: #3498db;
+      color: inherit;
+      transition: color 0.3s ease;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .section {
-     margin-top: 20px;
-      padding: 15px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .job-title {
-      font-weight: bold;
+
+    .contact i {
       font-size: 18px;
-      margin-top: 10px;
-      color: #34495e;
-    }
-    .technologies .project-description {
-      font-style: italic;
-      color: #7f8c8d;
-    }
-    .technologies-project {
-      font-weight: 500;
-      margin-top: 5px;
-      color: #3498db;
     }
 
-    .project-title {
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: 10px;
+    .main-content {
+      padding: 40px;
     }
 
-    .projects {
-      margin-top: 20px;
-    }
-
-    .footer {
+    .summary {
       text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #777;
+      margin-bottom: 50px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      animation: fadeInScale 1s ease-out 0.6s both;
     }
 
-    .footer a {
-      text-decoration: none;
-      color: #3498db;
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .summary strong {
+      color: var(--text-primary);
+      font-weight: 600;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin: 50px 0 30px;
+      font-size: 32px;
+      font-weight: 600;
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-primary);
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 40px;
+      background: var(--secondary-gradient);
+      border-radius: 3px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      bottom: -10px;
+      width: 100px;
+      height: 3px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+    }
+
+    .job-title {
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .job-title::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--secondary-gradient);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .job-date {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-weight: 500;
+      background: rgba(102, 126, 234, 0.1);
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 14px;
     }
 
     .section ul {
-      margin-top: 10px;
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .section li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .section li:hover {
+      transform: translateX(5px);
+      color: var(--text-primary);
+    }
+
+    .section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-gradient);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .technologies {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      border-left: 4px solid;
+      border-image: var(--accent-gradient) 1;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--text-primary);
+      margin: 25px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-title::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: var(--secondary-gradient);
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+
+    .project-description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .technologies-project {
+      font-weight: 500;
+      color: #667eea;
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding: 8px 15px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .skill-category {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+    }
+
+    .skill-category strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .education-item, .cert-section {
+      margin-bottom: 20px;
+      padding: 25px;
+      background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(240, 147, 251, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .education-item:hover, .cert-section:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-light);
+    }
+
+    .education-item strong {
+      color: var(--text-primary);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .degree {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .cert-item {
+      margin-bottom: 12px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 25px;
+      display: inline-block;
+      margin-right: 10px;
+      font-weight: 500;
+      color: var(--text-primary);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .cert-item:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--accent-gradient);
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    @keyframes sparkleAnimation {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        margin: 10px auto;
+        border-radius: 16px;
+      }
+      
+      header {
+        padding: 40px 20px 30px;
+      }
+      
+      h1 {
+        font-size: 36px;
+      }
+      
+      .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      .skill-category {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
+      
+      .summary {
+        font-size: 16px;
+        padding: 20px;
+      }
+      
+      .section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <h1>Nikitha Reddy Surakanti</h1>
-  <div class="contact">
-    Edison, NJ - 08820 • (405)-888-7495 • <a href="mailto:nikithareddy4321@gmail.com">nikithareddy4321@gmail.com</a> • <a href="https://www.linkedin.com/in/nikitha-surakanti-580517191/" target="_blank">LinkedIn</a>
-  </div>
-  </header>
-
-  <p><strong>Full Stack and Mobile Application Developer</strong> with 4+ years of experience in developing scalable web applications and mobile solutions. Skilled in designing and deploying RESTful APIs, managing cloud infrastructures (Azure, AWS, Firebase), and integrating cross-platform mobile frameworks such as Flutter, Xamarin, and .NET MAUI. Proficient in front-end (React, Angular, SwiftUI, Jetpack Compose) and back-end (SQL Server, MongoDB, Firebase) technologies, with a strong focus on optimizing user experience, performance, and security compliance (GDPR, HIPAA). Adept at working in Agile environments and leveraging data science knowledge for enhanced app functionality.</p>
-
-  <h2>Experience</h2>
-
-  <div class="section">
-    <div class="job-title">Mobile Application Developer - I | Hae Innovations | Skillman, NJ</div>
-    <p><em>MAR 2025 – PRESENT</em></p>
-    <ul>
-      <li>Develop and maintain cross-platform mobile applications using Flutter, Xamarin, .NET MAUI.</li>
-      <li>Design and implement RESTful APIs to connect mobile apps with backend systems.</li>
-      <li>Deploy apps on Azure, AWS, and Firebase using CI/CD pipelines.</li>
-      <li>Manage databases: Firebase, MongoDB, and SQL Server.</li>
-      <li>Ensure GDPR, HIPAA security compliance.</li>
-      <li>Enhance UI/UX with Jetpack Compose, SwiftUI, and Blazor Hybrid.</li>
-      <li>Work with IoT devices integrating BLE, Wi-Fi, LTE technologies.</li>
-      <li>Collaborate in Agile teams for scalable mobile solutions.</li>
-    </ul>
-    <p class="technologies">Technologies: Flutter, Xamarin, .NET MAUI, SwiftUI, Jetpack Compose, Firebase, Azure, AWS, CI/CD, SQL Server.</p>
-  </div>
-
-  <div class="section">
-    <div class="job-title">Full Stack Developer | R+L Carriers | Oklahoma City, OK</div>
-    <p><em>JAN 2024 – FEB 2025</em></p>
-    <ul>
-      <li>Designed cloud applications on Microsoft Azure with 99.9% uptime.</li>
-      <li>Integrated REST APIs with Angular and React front-ends.</li>
-      <li>Built database layers using C#, SQL Server, and MongoDB.</li>
-      <li>Implemented CI/CD pipelines with Azure DevOps.</li>
-      <li>Adopted Test-Driven Development (TDD) practices.</li>
-    </ul>
-    <p class="technologies">Technologies: ASP.NET MVC, .NET Core, Angular, React, SQL Server, MongoDB, Azure DevOps, Git, Power BI.</p>
-  </div>
-
-  <div class="section">
-    <div class="job-title">Technical Assistant - II | Oklahoma Christian University | Edmond, OK</div>
-    <p><em>JAN 2023 – DEC 2023</em></p>
-    <ul>
-      <li>Provided technical assistance for C#/.NET mobile and web projects.</li>
-      <li>Authored documentation for software environment setups.</li>
-      <li>Supported integration of R and SPSS for data analysis dashboards.</li>
-    </ul>
-    <p class="technologies">Technologies: .NET, C#, R, SPSS, Excel, Visual Studio, Windows, Blackboard, Android Emulators.</p>
-  </div>
-
-  <div class="section">
-    <div class="job-title">.NET Developer | Accenture | Hyderabad, India</div>
-    <p><em>AUG 2020 – JULY 2022</em></p>
-    <ul>
-      <li>Developed reusable UI components with React and Vue.js.</li>
-      <li>Built RESTful APIs with ASP.NET for web and mobile apps.</li>
-      <li>Worked with microservices, Docker, and Kubernetes environments.</li>
-    </ul>
-    <p class="technologies">Technologies: ASP.NET MVC, .NET Core, React, Vue.js, SQL Server, AWS, Azure Service Bus, RabbitMQ, Docker, Jenkins.</p>
-  </div>
-
-  <div class="section">
-    <div class="job-title">Software Developer | Incubyte Datatech | Hyderabad, India</div>
-    <p><em>JULY 2019 – SEPT 2019</em></p>
-    <ul>
-      <li>Developed backend modules for ASP.NET MVC apps.</li>
-      <li>Integrated AJAX, jQuery for improved mobile interaction.</li>
-      <li>Assisted with mobile responsiveness and unit testing.</li>
-    </ul>
-    <p class="technologies">Technologies: ASP.NET MVC, C#, AJAX, Python, R, Git, Visual Studio.</p>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
   </div>
   
-  <h2>Projects</h2>
+  <div class="scroll-indicator" id="scrollIndicator"></div>
 
-  <div class="projects">
-    <div class="project-title">1. Mosquito Misting App</div>
-    <p class="project-description">Developed a cross-platform mobile application that controls IoT-based mosquito misting systems remotely. Integrated BLE and Wi-Fi communication protocols to schedule and monitor misting operations.</p>
-    <p class="technologies-project">Technologies: Flutter, Firebase, Azure IoT, BLE, Wi-Fi, RESTful APIs.</p>
+  <div class="container">
+    <header>
+      <h1>Nikitha Reddy Surakanti</h1>
+      <div class="contact">
+        <span>
+          <i class="fas fa-map-marker-alt"></i> Edison, NJ - 08820
+        </span>
+        <span>
+          <i class="fas fa-phone-alt"></i> (405)-888-7495
+        </span>
+        <span>
+          <i class="fas fa-envelope"></i> 
+          <a href="mailto:nikithareddy4321@gmail.com">nikithareddy4321@gmail.com</a>
+        </span>
+        <span>
+          <i class="fab fa-linkedin"></i> 
+          <a href="https://www.linkedin.com/in/nikitha-surakanti-580517191/" target="_blank">LinkedIn</a>
+        </span>
+      </div>
+    </header>
 
-    <div class="project-title">2. Enterprise Key Tracking App ("Find My" Style)</div>
-    <p class="project-description">Built a mobile application to help car rental enterprises track and manage vehicle keys using Bluetooth tracking devices. Enabled real-time location updates, alerts for lost keys, and integration with enterprise backend systems.</p>
-    <p class="technologies-project">Technologies: Flutter, Firebase Realtime Database, Azure Functions, BLE, Geo-Location Services.</p>
+    <div class="main-content">
+      <div class="summary">
+        <strong>Full Stack and Mobile Application Developer</strong> with 4+ years of experience in developing scalable web applications and mobile solutions. Skilled in designing and deploying RESTful APIs, managing cloud infrastructures (Azure, AWS, Firebase), and integrating cross-platform mobile frameworks such as Flutter, Xamarin, and .NET MAUI. Proficient in front-end (React, Angular, SwiftUI, Jetpack Compose) and back-end (SQL Server, MongoDB, Firebase) technologies, with a strong focus on optimizing user experience, performance, and security compliance (GDPR, HIPAA). Adept at working in Agile environments and leveraging data science knowledge for enhanced app functionality.
+      </div>
 
-    <div class="project-title">3. Student Portal App</div>
-    <p class="project-description">Designed and developed a mobile application to help students quickly access information related to billing, class schedules, university updates, and campus services. Streamlined communication between students and university departments.</p>
-    <p class="technologies-project">Technologies: Flutter, Firebase, REST APIs, Push Notifications.</p>
+      <h2>Experience</h2>
 
-    <div class="project-title">4. Data Science-Based Movie Recommendation System</div>
-    <p class="project-description">Developed a movie recommendation system using machine learning algorithms (Collaborative Filtering, Content-Based Filtering) to suggest personalized movie choices to users. Leveraged a dataset of user ratings to build a model that can predict preferences based on historical data.</p>
-    <p class="technologies-project">Technologies: Python, Machine Learning, Pandas, Scikit-Learn, SQL, Data Visualization.</p>
+      <div class="section">
+        <div class="job-title">Mobile Application Developer - I | Hae Innovations | Skillman, NJ</div>
+        <div class="job-date">MAR 2025 – PRESENT</div>
+        <ul>
+          <li>Develop and maintain cross-platform mobile applications using Flutter, Xamarin, .NET MAUI.</li>
+          <li>Design and implement RESTful APIs to connect mobile apps with backend systems.</li>
+          <li>Deploy apps on Azure, AWS, and Firebase using CI/CD pipelines.</li>
+          <li>Manage databases: Firebase, MongoDB, and SQL Server.</li>
+          <li>Ensure GDPR, HIPAA security compliance.</li>
+          <li>Enhance UI/UX with Jetpack Compose, SwiftUI, and Blazor Hybrid.</li>
+          <li>Work with IoT devices integrating BLE, Wi-Fi, LTE technologies.</li>
+          <li>Collaborate in Agile teams for scalable mobile solutions.</li>
+        </ul>
+        <div class="technologies">Technologies: Flutter, Xamarin, .NET MAUI, SwiftUI, Jetpack Compose, Firebase, Azure, AWS, CI/CD, SQL Server.</div>
+      </div>
 
-    <div class="project-title">5. Cloud-Based Automated Data Cleaning Pipeline</div>
-    <p class="project-description">Designed an automated data cleaning pipeline hosted on AWS, where raw data could be processed, cleaned, and transformed before being fed into machine learning models. Integrated the pipeline with AWS S3 for storage and Lambda functions for real-time processing.</p>
-    <p class="technologies-project">Technologies: AWS, Python, Pandas, Lambda, S3, Data Processing.</p>
+      <div class="section">
+        <div class="job-title">Full Stack Developer | R+L Carriers | Oklahoma City, OK</div>
+        <div class="job-date">JAN 2024 – FEB 2025</div>
+        <ul>
+          <li>Designed cloud applications on Microsoft Azure with 99.9% uptime.</li>
+          <li>Integrated REST APIs with Angular and React front-ends.</li>
+          <li>Built database layers using C#, SQL Server, and MongoDB.</li>
+          <li>Implemented CI/CD pipelines with Azure DevOps.</li>
+          <li>Adopted Test-Driven Development (TDD) practices.</li>
+        </ul>
+        <div class="technologies">Technologies: ASP.NET MVC, .NET Core, Angular, React, SQL Server, MongoDB, Azure DevOps, Git, Power BI.</div>
+      </div>
 
-    <div class="project-title">6. Sentiment Analysis on Social Media Data</div>
-    <p class="project-description">Built a sentiment analysis model using natural language processing (NLP) to analyze social media posts about various brands. The model was trained to categorize text data as positive, negative, or neutral, providing valuable insights into brand perception.</p>
-    <p class="technologies-project">Technologies: Python, NLP, Scikit-Learn, TensorFlow, Pandas, Data Mining.</p>
+      <div class="section">
+        <div class="job-title">Technical Assistant - II | Oklahoma Christian University | Edmond, OK</div>
+        <div class="job-date">JAN 2023 – DEC 2023</div>
+        <ul>
+          <li>Provided technical assistance for C#/.NET mobile and web projects.</li>
+          <li>Authored documentation for software environment setups.</li>
+          <li>Supported integration of R and SPSS for data analysis dashboards.</li>
+        </ul>
+        <div class="technologies">Technologies: .NET, C#, R, SPSS, Excel, Visual Studio, Windows, Blackboard, Android Emulators.</div>
+      </div>
 
-    <div class="project-title">7. Predictive Analytics for Student Performance</div>
-    <p class="project-description">Developed a predictive model using R and machine learning algorithms to analyze and predict student performance based on historical data. The model helped identify at-risk students early and provided actionable insights for faculty to improve retention rates.</p>
-    <p class="technologies-project">Technologies: R, Python, Machine Learning, Data Analysis, SPSS.</p>
+      <div class="section">
+        <div class="job-title">.NET Developer | Accenture | Hyderabad, India</div>
+        <div class="job-date">AUG 2020 – JULY 2022</div>
+        <ul>
+          <li>Developed reusable UI components with React and Vue.js.</li>
+          <li>Built RESTful APIs with ASP.NET for web and mobile apps.</li>
+          <li>Worked with microservices, Docker, and Kubernetes environments.</li>
+        </ul>
+        <div class="technologies">Technologies: ASP.NET MVC, .NET Core, React, Vue.js, SQL Server, AWS, Azure Service Bus, RabbitMQ, Docker, Jenkins.</div>
+      </div>
 
-    <div class="project-title">8. Real-Time Traffic Monitoring System</div>
-    <p class="project-description">Designed and implemented a real-time traffic monitoring system using data from IoT sensors to predict traffic congestion. Built a dashboard for visualizing live traffic data and providing real-time suggestions to drivers based on traffic conditions.</p>
-    <p class="technologies-project">Technologies: Python, Django, IoT, Data Visualization, Flask.</p>
+      <div class="section">
+        <div class="job-title">Software Developer | Incubyte Datatech | Hyderabad, India</div>
+        <div class="job-date">JULY 2019 – SEPT 2019</div>
+        <ul>
+          <li>Developed backend modules for ASP.NET MVC apps.</li>
+          <li>Integrated AJAX, jQuery for improved mobile interaction.</li>
+          <li>Assisted with mobile responsiveness and unit testing.</li>
+        </ul>
+        <div class="technologies">Technologies: ASP.NET MVC, C#, AJAX, Python, R, Git, Visual Studio.</div>
+      </div>
+      
+      <h2>Projects</h2>
+
+      <div class="section">
+        <div class="project-title">1. Mosquito Misting App</div>
+        <div class="project-description">Developed a cross-platform mobile application that controls IoT-based mosquito misting systems remotely. Integrated BLE and Wi-Fi communication protocols to schedule and monitor misting operations.</div>
+        <div class="technologies-project">Technologies: Flutter, Firebase, Azure IoT, BLE, Wi-Fi, RESTful APIs.</div>
+
+        <div class="project-title">2. Enterprise Key Tracking App ("Find My" Style)</div>
+        <div class="project-description">Built a mobile application to help car rental enterprises track and manage vehicle keys using Bluetooth tracking devices. Enabled real-time location updates, alerts for lost keys, and integration with enterprise backend systems.</div>
+        <div class="technologies-project">Technologies: Flutter, Firebase Realtime Database, Azure Functions, BLE, Geo-Location Services.</div>
+
+        <div class="project-title">3. Student Portal App</div>
+        <div class="project-description">Designed and developed a mobile application to help students quickly access information related to billing, class schedules, university updates, and campus services. Streamlined communication between students and university departments.</div>
+        <div class="technologies-project">Technologies: Flutter, Firebase, REST APIs, Push Notifications.</div>
+
+        <div class="project-title">4. Data Science-Based Movie Recommendation System</div>
+        <div class="project-description">Developed a movie recommendation system using machine learning algorithms (Collaborative Filtering, Content-Based Filtering) to suggest personalized movie choices to users. Leveraged a dataset of user ratings to build a model that can predict preferences based on historical data.</div>
+        <div class="technologies-project">Technologies: Python, Machine Learning, Pandas, Scikit-Learn, SQL, Data Visualization.</div>
+
+        <div class="project-title">5. Cloud-Based Automated Data Cleaning Pipeline</div>
+        <div class="project-description">Designed an automated data cleaning pipeline hosted on AWS, where raw data could be processed, cleaned, and transformed before being fed into machine learning models. Integrated the pipeline with AWS S3 for storage and Lambda functions for real-time processing.</div>
+        <div class="technologies-project">Technologies: AWS, Python, Pandas, Lambda, S3, Data Processing.</div>
+
+        <div class="project-title">6. Sentiment Analysis on Social Media Data</div>
+        <div class="project-description">Built a sentiment analysis model using natural language processing (NLP) to analyze social media posts about various brands. The model was trained to categorize text data as positive, negative, or neutral, providing valuable insights into brand perception.</div>
+        <div class="technologies-project">Technologies: Python, NLP, Scikit-Learn, TensorFlow, Pandas, Data Mining.</div>
+
+        <div class="project-title">7. Predictive Analytics for Student Performance</div>
+        <div class="project-description">Developed a predictive model using R and machine learning algorithms to analyze and predict student performance based on historical data. The model helped identify at-risk students early and provided actionable insights for faculty to improve retention rates.</div>
+        <div class="technologies-project">Technologies: R, Python, Machine Learning, Data Analysis, SPSS.</div>
+
+        <div class="project-title">8. Real-Time Traffic Monitoring System</div>
+        <div class="project-description">Designed and implemented a real-time traffic monitoring system using data from IoT sensors to predict traffic congestion. Built a dashboard for visualizing live traffic data and providing real-time suggestions to drivers based on traffic conditions.</div>
+        <div class="technologies-project">Technologies: Python, Django, IoT, Data Visualization, Flask.</div>
+      </div>
+
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <strong>Languages:</strong> C#, SQL, HTML5, CSS, JavaScript, Python, PHP, Java, R, XML
+        </div>
+        <div class="skill-category">
+          <strong>Mobile Development:</strong> Flutter, Xamarin, .NET MAUI, SwiftUI, Jetpack Compose, Blazor Hybrid
+        </div>
+        <div class="skill-category">
+          <strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Entity Framework, React, Angular, Vue.js
+        </div>
+        <div class="skill-category">
+          <strong>Databases:</strong> SQL Server, Firebase, MongoDB, MySQL
+        </div>
+        <div class="skill-category">
+          <strong>Cloud & DevOps:</strong> Azure, AWS, Firebase, Azure DevOps, Jenkins, CI/CD Pipelines
+        </div>
+        <div class="skill-category">
+          <strong>Web Technologies:</strong> Web API, RESTful Services, WCF, JWT, OAuth 2.0, Swagger
+        </div>
+        <div class="skill-category">
+          <strong>Security:</strong> GDPR, HIPAA Compliance
+        </div>
+        <div class="skill-category">
+          <strong>Testing:</strong> NUnit, xUnit, Postman, SoapUI, Fiddler, TDD
+        </div>
+        <div class="skill-category">
+          <strong>Data Analysis:</strong> Power BI, Tableau, Excel, SPSS
+        </div>
+        <div class="skill-category">
+          <strong>Messaging:</strong> RabbitMQ, Azure Service Bus
+        </div>
+        <div class="skill-category">
+          <strong>Methodologies:</strong> Scrum, Agile, Sprint Planning
+        </div>
+      </div>
+
+      <h2>Education</h2>
+      <div class="education-item">
+        <strong>Oklahoma Christian University, Edmond, OK</strong>
+        <div class="degree">Master's in Computer Science – Data Science | Aug 2022 – Nov 2023</div>
+      </div>
+
+      <div class="education-item">
+        <strong>JNTUH, Hyderabad, India</strong>
+        <div class="degree">Bachelor's in Computer Science | Aug 2017 – July 2021</div>
+      </div>
+
+      <h2>Certifications</h2>
+      <div class="cert-section">
+        <div class="cert-item">Certified Azure Developer Associate (AZ-204)</div>
+        <div class="cert-item">Flutter Development – Udemy</div>
+        <div class="cert-item">React & React Native – Coursera</div>
+      </div>
+
+    </div>
   </div>
 
-  <h2>Technical Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> C#, SQL, HTML5, CSS, JavaScript, Python, PHP, Java, R, XML</li>
-    <li><strong>Mobile Development:</strong> Flutter, Xamarin, .NET MAUI, SwiftUI, Jetpack Compose, Blazor Hybrid</li>
-    <li><strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Entity Framework, React, Angular, Vue.js</li>
-    <li><strong>Databases:</strong> SQL Server, Firebase, MongoDB, MySQL</li>
-    <li><strong>Cloud & DevOps:</strong> Azure, AWS, Firebase, Azure DevOps, Jenkins, CI/CD Pipelines</li>
-    <li><strong>Web Technologies:</strong> Web API, RESTful Services, WCF, JWT, OAuth 2.0, Swagger</li>
-    <li><strong>Security:</strong> GDPR, HIPAA Compliance</li>
-    <li><strong>Testing:</strong> NUnit, xUnit, Postman, SoapUI, Fiddler, TDD</li>
-    <li><strong>Data Analysis:</strong> Power BI, Tableau, Excel, SPSS</li>
-    <li><strong>Messaging:</strong> RabbitMQ, Azure Service Bus</li>
-    <li><strong>Methodologies:</strong> Scrum, Agile, Sprint Planning</li>
-  </ul>
+  <script>
+    // Scroll indicator
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollIndicator').style.width = scrollPercent + '%';
+    });
 
-  <h2>Education</h2>
-  <p><strong>Oklahoma Christian University, Edmond, OK</strong><br>
-  Master’s in Computer Science – Data Science | Aug 2022 – Nov 2023</p>
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  <p><strong>JNTUH, Hyderabad, India</strong><br>
-  Bachelor’s in Computer Science | Aug 2017 – July 2021</p>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
 
-  <h2>Certifications</h2>
-  <ul>
-    <li>Certified Azure Developer Associate (AZ-204)</li>
-    <li>Flutter Development – Udemy</li>
-    <li>React & React Native – Coursera</li>
-  </ul>
+    // Observe all sections for scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+      });
+    });
 
+    // Add sparkle effect on mouse move
+    document.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.9) {
+        createSparkle(e.clientX, e.clientY);
+      }
+    });
+
+    function createSparkle(x, y) {
+      const sparkle = document.createElement('div');
+      sparkle.style.position = 'fixed';
+      sparkle.style.left = x + 'px';
+      sparkle.style.top = y + 'px';
+      sparkle.style.width = '4px';
+      sparkle.style.height = '4px';
+      sparkle.style.background = '#667eea';
+      sparkle.style.borderRadius = '50%';
+      sparkle.style.pointerEvents = 'none';
+      sparkle.style.zIndex = '1000';
+      sparkle.style.animation = 'sparkleAnimation 1s ease-out forwards';
+      
+      document.body.appendChild(sparkle);
+      
+      setTimeout(() => {
+        sparkle.remove();
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
